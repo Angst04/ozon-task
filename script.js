@@ -19,6 +19,8 @@ const ProgressAPI = {
   },
 
   setValue(newValue) {
+    if (this.state === "animated") return;
+
     const normalizedValue = Math.max(0, Math.min(100, newValue));
     this.value = normalizedValue;
     const offset =
@@ -26,12 +28,33 @@ const ProgressAPI = {
 
     this.circle.style.strokeDashoffset = offset;
   },
+
+  setAnimated(isAnimated) {
+    if (isAnimated) {
+      this.state = "animated";
+      this.element.classList.add("animated");
+    } else {
+      this.state = "normal";
+      this.element.classList.remove("animated");
+      this.setValue(this.value);
+    }
+  },
+
+  setHidden(isHidden) {
+    if (isHidden) {
+      this.element.classList.add("hidden");
+    } else {
+      this.element.classList.remove("hidden");
+    }
+  },
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   const progress = ProgressAPI.init("progressBlock");
 
   const valueInput = document.getElementById("valueInput");
+  const animateToggle = document.getElementById("animateToggle");
+  const hideToggle = document.getElementById("hideToggle");
 
   valueInput.addEventListener("input", (e) => {
     let val = parseInt(e.target.value, 10);
@@ -48,6 +71,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     e.target.value = val;
     progress.setValue(val);
+  });
+
+  animateToggle.addEventListener("change", (e) => {
+    progress.setAnimated(e.target.checked);
+    if (e.target.checked) {
+      valueInput.disabled = true;
+    } else {
+      valueInput.disabled = false;
+    }
+  });
+
+  hideToggle.addEventListener("change", (e) => {
+    progress.setHidden(e.target.checked);
   });
 
   progress.setValue(0);
