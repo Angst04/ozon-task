@@ -6,4 +6,72 @@
 
 body {
   font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  position: relative;
+  width: 100%;
+  max-width: 568px;
+  height: auto;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+
+.progress-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 32px;
+  justify-content: center;
 }
