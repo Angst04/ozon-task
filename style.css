@@ -19,8 +19,9 @@ body {
   height: 100%;
   max-width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 }
 
 .layout {
@@ -45,10 +46,9 @@ body {
 }
 
 .title {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 700;
   align-self: flex-start;
-  margin-bottom: 24px;
 }
 
 .progress-container {
@@ -86,7 +86,7 @@ body {
   fill: none;
   stroke: #1a73e8;
   stroke-width: 8;
-  stroke-linecap: round;
+  stroke-linecap: butt;
   transition: stroke-dashoffset 0.3s ease;
 }
 
@@ -138,16 +138,15 @@ body {
 }
 
 .control-label {
+  font-weight: 700;
   font-size: 14px;
-  color: #5f6368;
-  font-weight: 400;
 }
 
 .toggle {
   position: relative;
   display: inline-block;
-  width: 44px;
-  height: 24px;
+  width: 56px;
+  height: 32px;
   cursor: pointer;
 }
 
@@ -166,16 +165,16 @@ body {
   bottom: 0;
   background-color: #e8eef3;
   transition: 0.3s;
-  border-radius: 24px;
+  border-radius: 32px;
 }
 
 .toggle-slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
   background-color: white;
   transition: 0.3s;
   border-radius: 50%;
@@ -187,5 +186,29 @@ body {
 }
 
 .toggle input:checked + .toggle-slider:before {
-  transform: translateX(20px);
+  transform: translateX(24px);
+}
+
+@media (min-width: 568px) {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .layout {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 32px;
+    height: auto;
+  }
+
+  .controls-section {
+    margin-top: 0;
+  }
+
+  .control-row {
+    justify-content: flex-start;
+  }
 }
