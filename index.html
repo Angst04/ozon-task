@@ -13,7 +13,7 @@
         <div class="progress-section">
           <h1 class="title">Progress</h1>
           <div class="progress-container">
-            <div class="progress-block">
+            <div class="progress-block" id="progressBlock">
               <svg class="progress-svg" viewBox="0 0 120 120">
                 <circle class="progress-bg" cx="60" cy="60" r="52"></circle>
                 <circle class="progress-bar" cx="60" cy="60" r="52"></circle>
@@ -38,7 +38,7 @@
 
           <div class="control-row">
             <label class="toggle">
-              <input type="checkbox" />
+              <input type="checkbox" id="animateToggle" />
               <span class="toggle-slider"></span>
             </label>
             <span class="control-label">Animate</span>
@@ -46,7 +46,7 @@
 
           <div class="control-row">
             <label class="toggle">
-              <input type="checkbox" />
+              <input type="checkbox" id="hideToggle" />
               <span class="toggle-slider"></span>
             </label>
             <span class="control-label">Hide</span>
